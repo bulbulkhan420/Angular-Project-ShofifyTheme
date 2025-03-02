@@ -1,0 +1,66 @@
+<div class="bg-[#0E1B4D] flex flex-col gap-y-5 pb-5 hidden md:block  z-50 w-full left-0 right-0 top-0" >
+    <div class="h-[35px] bg-[#4770DB] flex justify-center items-center text-white text-sm font-bold">Free Shipping on Order $40</div>
+    <div class=" flex justify-between items-center py-5 px-5">
+        <div class="text-white text-xl"><mat-icon>search</mat-icon></div>
+        <div class="text-lg font-bold text-white -rotate-20" routerLink="/">REFRESS</div>
+        <div class="text-white  relative">
+            <mat-icon >local_mall</mat-icon>
+            <div class="absolute -right-[50%] -bottom-[50%] transform translate-x-[-50%] translate-y-[-80%] h-4 w-4 rounded-full bg-gray-500 text-white text-xs flex justify-center items-center">
+                {{cartNumber}}
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center gap-x-5">
+        <div routerLink="/hair" class=" py-1 text-[#9BBBCB] border-b-[2px] border-b-[#0E1B4D]  hover:border-b-white hover:text-white">Hair</div>
+        <div routerLink="/face" class=" py-1 text-[#9BBBCB] border-b-[2px] border-b-[#0E1B4D]  hover:border-b-white hover:text-white">Face</div>
+        <div routerLink="/body" class=" py-1 text-[#9BBBCB] border-b-[2px] border-b-[#0E1B4D]  hover:border-b-white hover:text-white">body</div>
+        <div routerLink="/kits" class=" py-1 text-[#9BBBCB] border-b-[2px] border-b-[#0E1B4D]  hover:border-b-white hover:text-white">kits</div>
+        <div class="flex gap-x-2 items-center  py-1 text-[#9BBBCB] border-b-[2px] border-b-[#0E1B4D]  hover:border-b-white hover:text-white relative" (click)="setToggle()">
+            About 
+            @if(headerToggle()){
+                <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+            @else {
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            }
+            <div class="w-[200px] h-[150px] bg-[#0E1B4D] p-5 flex flex-col gap-y-3 rounded-lg border-[1px] border-white z-50 justify-start absolute top-[102%] left-[-5%] {{headerToggle()?'block':'hidden'}}">
+                <div routerLink="/ourstory" class=" py-1 text-[#9BBBCB] hover:text-white">Our Story</div>
+                <div routerLink="/blog" class=" py-1 text-[#9BBBCB] hover:text-white">Blog</div>
+                <div routerLink="/contract" class=" py-1 text-[#9BBBCB] hover:text-white">Contract</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- mobile -->
+ <div class="block md:hidden  w-full z-50">
+    <div class="bg-[#0E1B4D] h-[70px] px-2 flex justify-between items-center z-50">
+        <div class="text-white" (click)="setMenuBarToggle()">
+            @if(!menubarToggle()){
+                <mat-icon>menu</mat-icon>
+            }
+            @else {
+                <mat-icon>close</mat-icon>
+            }
+        </div>
+       
+            <div class="text-lg font-bold text-white -rotate-20" routerLink="/">REFRESS</div>
+            <div class="flex items-center justify-center gap-x-3">
+                <div class="text-white text-xl"><mat-icon>search</mat-icon></div>
+           
+                <div class="text-white  relative">
+                    <mat-icon >local_mall</mat-icon>
+                    <div class="absolute -right-[50%] -bottom-[50%] transform translate-x-[-50%] translate-y-[-80%] h-4 w-4 rounded-full bg-gray-500 text-white text-xs flex justify-center items-center">
+                      {{cartNumber}}
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="fixed w-[40%] min-w-[250px] top-0 h-screen top-[70px] px-2 flex bg-[#0E1B4D] flex-col gap-y-3 duration-500 {{menubarToggle()?'left-0':'left-[-120%]'}}">
+        <div routerLink="/hair" class=" py-1 text-[#9BBBCB] hover:text-white" (click)="setMenuBarToggle()">Hair</div>
+        <div routerLink="/body" class=" py-1 text-[#9BBBCB] hover:text-white" (click)="setMenuBarToggle()">Body</div>
+        <div routerLink="/face" class=" py-1 text-[#9BBBCB] hover:text-white" (click)="setMenuBarToggle()">Face</div>
+        <div routerLink="/kits" class=" py-1 text-[#9BBBCB] hover:text-white" (click)="setMenuBarToggle()">Kits</div>
+        <div class=" py-1 text-[#9BBBCB] hover:text-white">About</div>
+    </div>
+    
+ </div>

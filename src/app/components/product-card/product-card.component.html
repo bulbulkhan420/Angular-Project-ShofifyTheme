@@ -1,0 +1,13 @@
+<div class="p-5 rounded-lg border-[1px]">
+    <div >
+   <img src="{{card.image}}" alt="No product" class="w-full h-[300px]">
+    </div>
+    <div class="flex flex-col gap-y-3">
+        <div class="font-bold text-lg">
+            {{card.category}}
+        </div>
+        <div class="text-xl">${{card.price}}</div>
+        <div><button (click)="increase()" class="w-full p-3 rounded-full bg-white border-[1px] hover:border-[3px]">Add to cart</button></div>
+    </div>
+    
+</div>

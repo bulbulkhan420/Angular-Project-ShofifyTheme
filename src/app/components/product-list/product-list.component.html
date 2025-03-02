@@ -1,0 +1,16 @@
+@if(cardList().length>0){
+    <div class="flex flex-col gap-y-5 pt-5">
+        <div class="text-[#0E1B4D] font-bold text-lg mx-5">Meet the internet's favorite skincare.</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-5 gap-3">
+            @for(card of cardList();track $index){
+                <app-product-card [card]="card"/>
+            }
+        </div>
+    </div>
+}
+@else {
+    <div class="h-[80dvh] flex justify-center items-center text-md">Loading....</div>
+}
+
+
+
