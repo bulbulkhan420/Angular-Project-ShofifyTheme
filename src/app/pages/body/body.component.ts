@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-
+import { HerosectionyComponent } from '../../components/herosectiony/herosectiony.component';
+import { ProductListComponent } from '../../components/product-list/product-list.component';
 @Component({
   selector: 'app-body',
-  imports: [],
+  imports: [HerosectionyComponent,ProductListComponent],
   templateUrl: './body.component.html',
   styleUrl: './body.component.scss'
 })

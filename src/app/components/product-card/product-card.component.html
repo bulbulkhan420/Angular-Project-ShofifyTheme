@@ -7,7 +7,15 @@
             {{card.category}}
         </div>
         <div class="text-xl">${{card.price}}</div>
-        <div><button (click)="increase()" class="w-full p-3 rounded-full bg-white border-[1px] hover:border-[3px]">Add to cart</button></div>
+        <div (click)="[sucess()]"><button (click)="isRemove?[removeList(),decress()]:[addList(),increase()]" class="w-full p-3 rounded-full bg-white border-[1px] hover:ring-2  ">
+            @if(isRemove){
+                Remove from cart
+            }
+            @else {
+                Add to cart
+            }
+           
+        </button></div>
     </div>
     
 </div>

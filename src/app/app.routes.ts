@@ -49,5 +49,11 @@ export const routes: Routes = [
         loadComponent:()=>{
             return import('./pages/ourstory/ourstory.component').then((m)=>m.OurstoryComponent)
         }
+    },
+    {
+        path:'cartlist',
+        loadComponent:()=>{
+            return import('./pages/card-list/card-list.component').then((m)=>m.CardListComponent)
+        }
     }
 ];

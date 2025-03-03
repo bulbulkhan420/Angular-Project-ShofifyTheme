@@ -2,6 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import { AddtocartService } from '../../store/AddToCard/addtocart.service';
+import { cardInterface } from '../../models/cardData.interface';
 @Component({
   selector: 'app-header',
   imports: [RouterLink,MatIconModule],
@@ -11,11 +12,25 @@ import { AddtocartService } from '../../store/AddToCard/addtocart.service';
 export class HeaderComponent implements OnInit{
   
   cartNumber:number=0;
+  showCart:boolean=false;
+  searchToggle=signal(false);
+  allCartList:cardInterface[]=[];
    constructor(private cartlist:AddtocartService){}
    ngOnInit(): void {
      this.cartlist.itemsNumber$.subscribe({
       next:(data)=>{
         this.cartNumber=data
+      }
+     })
+     this.cartlist.showCard$.subscribe({
+      next:(data)=>{
+        this.showCart=data
+      }
+     })
+     this.cartlist.cartList$.subscribe({
+      next:(data)=>{
+        this.allCartList=data
+        console.log(data)
       }
      })
    }
@@ -27,4 +42,8 @@ export class HeaderComponent implements OnInit{
    setMenuBarToggle(){
     this.menubarToggle.update((data)=>!data)
    }
+   toggleSearch(){
+   this.searchToggle.update((data)=>!data)
+   }
+   
 }

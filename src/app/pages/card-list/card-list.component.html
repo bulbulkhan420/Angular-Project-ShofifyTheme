@@ -1,0 +1,19 @@
+@if(allCartList.length>0){
+    <div class="flex flex-col gap-y-5 py-5">
+      
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-5 md:mx-[10%] gap-3">
+            @for(card of allCartList;track $index){
+               
+                <app-product-card [card]="card" [isRemove]="true"/>
+              
+            }
+        </div>
+    </div>
+}
+@else {
+    <div class="h-[80dvh] flex justify-center items-center text-md">Loading....</div>
+}
+
+
+
+

@@ -1,6 +1,7 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { GetCardListService } from '../../services/get-card-list.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { cardInterface } from '../../models/cardData.interface';
 @Component({
   selector: 'app-product-list',
   imports: [ProductCardComponent],
@@ -8,8 +9,9 @@ import { ProductCardComponent } from '../product-card/product-card.component';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent implements OnInit {
+  @Input() isHome: boolean = false;
   cardListAll=inject(GetCardListService)
-   cardList=signal([])
+   cardList=signal<cardInterface[]>([])
    ngOnInit(): void {
     this.cardListAll.getAllCardData()
     .subscribe({

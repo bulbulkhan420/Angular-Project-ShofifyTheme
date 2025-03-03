@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-herosectiony',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './herosectiony.component.scss'
 })
 export class HerosectionyComponent {
-
+ @Input() hero={title:'',description:'',product:''}
 }

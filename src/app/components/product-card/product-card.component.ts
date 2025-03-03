@@ -9,11 +9,22 @@ import { AddtocartService } from '../../store/AddToCard/addtocart.service';
 })
 export class ProductCardComponent {
  @Input() card={id:0,category:'',image:'',price:0}
+ @Input() isRemove:boolean=false;
  constructor(private cardList:AddtocartService){}
  increase(){
   this.cardList.increase(1)
  }
  decress(){
   this.cardList.decress(1)
+ }
+ sucess(){
+  alert('Product added to cart')
+ }
+ addList(){
+  this.cardList.addCartList(this.card)
+ }
+ removeList(){
+  
+  this.cardList.removeCartList(this.card)
  }
 }
